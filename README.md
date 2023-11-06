@@ -1,6 +1,9 @@
 # Brewery-review-system
 
+
 User Registration page
+
+
 ![register](https://github.com/Shantanu-2127/Brewery-review-system/assets/72463363/61e71d97-c15d-47ea-bf91-0283eadcb0b3)
 
 Login Page
