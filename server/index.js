@@ -45,7 +45,8 @@ app.post('/', (req, res)=>{
 })
 
 app.post("/home/breweries/:id/review", (req, res)=>{
-    reviewModel.create(req.body)
+    const {id, review, rating} = req.body;
+    reviewModel.create({breweryId: id, rating: rating, review: review})
     .then((review) => res.json(review))
     .catch((err)=> res.status(500).json(err));
 })

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function ReviewForm() {
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState('');
   const { id } = useParams();
+
+
 
   const handleRatingChange = (e) => {
     setRating(parseInt(e.target.value));
@@ -18,8 +21,8 @@ function ReviewForm() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8080/home/breweries/${id}/rating`, { id, rating, review });
-      console.log(response.data);
+      const res = await axios.post(`http://localhost:8080/home/breweries/${id}/review`, { id, rating, review });
+      console.log(res.data);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -53,9 +56,15 @@ function ReviewForm() {
             onChange={handleDescriptionChange}
           />
         </div>
-        <button type="submit" className="btn btn-danger">
+        <button type="submit" className="btn btn-danger px-2 py-2  my-3 mx-3">
           Submit Review
         </button>
+
+        <NavLink to={`/home/breweries/${id}`}>
+        <button className="btn btn-primary">
+          Go back
+        </button>
+        </NavLink>
       </form>
     </div>
   );

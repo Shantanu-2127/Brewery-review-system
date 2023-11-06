@@ -38,14 +38,15 @@ function BreweryDetails() {
       </p>
       <div>
         <h3 className="mt-4 text-warning">Reviews and Ratings:</h3>
-        {reviews.map((review, index) => (
+        { reviews != null ?
+          (reviews.map((review, index) => (
           <div key={index} className="card mb-3 bg-light">
             <div className="card-body">
               <p className="card-text"><strong className="text-primary">Rating:</strong> {review.rating}</p>
               <p className="card-text"><strong className="text-secondary">Review:</strong> {review.review}</p>
             </div>
           </div>
-        ))}
+        ))):((<p> No review for this brewery</p>))}
       </div>
       <NavLink to={`/home/breweries/${id}/review`} className="btn btn-danger mt-3">
         Add Review

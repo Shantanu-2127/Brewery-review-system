@@ -7,7 +7,7 @@ const reviewSchema = new mongoose.Schema({
         max: 5,
     },
     review: String,
-    userId: String,
+    breweryId: String,
    
 })
 
